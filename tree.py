@@ -66,15 +66,14 @@ class Codec:
     @staticmethod
     def preorder(root:Node):
         if root:
+            #print(root)
             if root.children:
                 for i in root.children:
                     Codec.preorder(i)
-        print(root.val)
+        print(root.val, end=", ")
 
 # Example usage:
 codec = Codec()
-root = codec.deserialize("1 None 2 3 None 4 5 None None 6 None 7 None None")
+root = codec.deserialize("1 None 3 2 4 None 5 6")
 serialized_data = codec.serialize(root)
-codec.preorder(serialized_data)
-print(serialized_data)
-
+codec.preorder(root)
